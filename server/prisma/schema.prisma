@@ -15,8 +15,8 @@ model User {
   password  String
   projects  Project[]
   roles     String[]
+  tasks     Task[]
   updatedAt DateTime  @updatedAt
-  user      Task[]
   username  String    @unique
 }
 

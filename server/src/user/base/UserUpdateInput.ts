@@ -85,7 +85,7 @@ class UserUpdateInput {
   @Field(() => TaskUpdateManyWithoutUsersInput, {
     nullable: true,
   })
-  user?: TaskUpdateManyWithoutUsersInput;
+  tasks?: TaskUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,

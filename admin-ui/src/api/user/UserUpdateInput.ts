@@ -7,6 +7,6 @@ export type UserUpdateInput = {
   password?: string;
   projects?: ProjectUpdateManyWithoutUsersInput;
   roles?: Array<string>;
-  user?: TaskUpdateManyWithoutUsersInput;
+  tasks?: TaskUpdateManyWithoutUsersInput;
   username?: string;
 };

@@ -79,7 +79,7 @@ class UserCreateInput {
   @Field(() => TaskCreateNestedManyWithoutUsersInput, {
     nullable: true,
   })
-  user?: TaskCreateNestedManyWithoutUsersInput;
+  tasks?: TaskCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: true,
