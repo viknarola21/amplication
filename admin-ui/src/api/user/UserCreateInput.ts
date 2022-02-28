@@ -7,6 +7,6 @@ export type UserCreateInput = {
   password: string;
   projects?: ProjectCreateNestedManyWithoutUsersInput;
   roles: Array<string>;
-  user?: TaskCreateNestedManyWithoutUsersInput;
+  tasks?: TaskCreateNestedManyWithoutUsersInput;
   username: string;
 };

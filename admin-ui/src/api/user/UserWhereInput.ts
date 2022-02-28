@@ -8,6 +8,6 @@ export type UserWhereInput = {
   id?: StringFilter;
   lastName?: StringNullableFilter;
   projects?: ProjectListRelationFilter;
-  user?: TaskListRelationFilter;
+  tasks?: TaskListRelationFilter;
   username?: StringFilter;
 };

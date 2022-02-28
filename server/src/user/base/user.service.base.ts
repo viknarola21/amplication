@@ -83,7 +83,7 @@ export class UserServiceBase {
       .projects(args);
   }
 
-  async findUser(
+  async findTasks(
     parentId: string,
     args: Prisma.TaskFindManyArgs
   ): Promise<Task[]> {
@@ -91,6 +91,6 @@ export class UserServiceBase {
       .findUnique({
         where: { id: parentId },
       })
-      .user(args);
+      .tasks(args);
   }
 }

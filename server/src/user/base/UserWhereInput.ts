@@ -74,7 +74,7 @@ class UserWhereInput {
   @Field(() => TaskListRelationFilter, {
     nullable: true,
   })
-  user?: TaskListRelationFilter;
+  tasks?: TaskListRelationFilter;
 
   @ApiProperty({
     required: false,

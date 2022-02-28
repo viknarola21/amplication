@@ -238,7 +238,7 @@ export class UserResolverBase {
     action: "read",
     possession: "any",
   })
-  async user(
+  async tasks(
     @graphql.Parent() parent: User,
     @graphql.Args() args: TaskFindManyArgs,
     @gqlUserRoles.UserRoles() userRoles: string[]
@@ -249,7 +249,7 @@ export class UserResolverBase {
       possession: "any",
       resource: "Task",
     });
-    const results = await this.service.findUser(parent.id, args);
+    const results = await this.service.findTasks(parent.id, args);
 
     if (!results) {
       return [];

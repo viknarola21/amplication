@@ -75,21 +75,21 @@ class User {
   roles!: Array<string>;
 
   @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
-
-  @ApiProperty({
     required: false,
     type: () => [Task],
   })
   @ValidateNested()
   @Type(() => Task)
   @IsOptional()
-  user?: Array<Task>;
+  tasks?: Array<Task>;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
 
   @ApiProperty({
     required: true,

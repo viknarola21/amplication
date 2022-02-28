@@ -467,14 +467,14 @@ export class UserControllerBase {
     defaultAuthGuard.DefaultAuthGuard,
     nestAccessControl.ACGuard
   )
-  @common.Get("/:id/user")
+  @common.Get("/:id/tasks")
   @nestAccessControl.UseRoles({
     resource: "User",
     action: "read",
     possession: "any",
   })
   @ApiNestedQuery(TaskFindManyArgs)
-  async findManyUser(
+  async findManyTasks(
     @common.Req() request: Request,
     @common.Param() params: UserWhereUniqueInput,
     @nestAccessControl.UserRoles() userRoles: string[]
@@ -486,7 +486,7 @@ export class UserControllerBase {
       possession: "any",
       resource: "Task",
     });
-    const results = await this.service.findUser(params.id, {
+    const results = await this.service.findTasks(params.id, {
       ...query,
       select: {
         assignedTo: {
@@ -524,19 +524,19 @@ export class UserControllerBase {
     defaultAuthGuard.DefaultAuthGuard,
     nestAccessControl.ACGuard
   )
-  @common.Post("/:id/user")
+  @common.Post("/:id/tasks")
   @nestAccessControl.UseRoles({
     resource: "User",
     action: "update",
     possession: "any",
   })
-  async createUser(
+  async createTasks(
     @common.Param() params: UserWhereUniqueInput,
     @common.Body() body: UserWhereUniqueInput[],
     @nestAccessControl.UserRoles() userRoles: string[]
   ): Promise<void> {
     const data = {
-      user: {
+      tasks: {
         connect: body,
       },
     };
@@ -569,19 +569,19 @@ export class UserControllerBase {
     defaultAuthGuard.DefaultAuthGuard,
     nestAccessControl.ACGuard
   )
-  @common.Patch("/:id/user")
+  @common.Patch("/:id/tasks")
   @nestAccessControl.UseRoles({
     resource: "User",
     action: "update",
     possession: "any",
   })
-  async updateUser(
+  async updateTasks(
     @common.Param() params: UserWhereUniqueInput,
     @common.Body() body: TaskWhereUniqueInput[],
     @nestAccessControl.UserRoles() userRoles: string[]
   ): Promise<void> {
     const data = {
-      user: {
+      tasks: {
         set: body,
       },
     };
@@ -614,19 +614,19 @@ export class UserControllerBase {
     defaultAuthGuard.DefaultAuthGuard,
     nestAccessControl.ACGuard
   )
-  @common.Delete("/:id/user")
+  @common.Delete("/:id/tasks")
   @nestAccessControl.UseRoles({
     resource: "User",
     action: "update",
     possession: "any",
   })
-  async deleteUser(
+  async deleteTasks(
     @common.Param() params: UserWhereUniqueInput,
     @common.Body() body: UserWhereUniqueInput[],
     @nestAccessControl.UserRoles() userRoles: string[]
   ): Promise<void> {
     const data = {
-      user: {
+      tasks: {
         disconnect: body,
       },
     };
